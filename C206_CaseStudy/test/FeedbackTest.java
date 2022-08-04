@@ -3,7 +3,7 @@
 /// CREATE FEEDBACK
 	
 // test that feedbacks are added accordingly
-	assertNotNull("test if there is a feedback list to add into", feedbackList);
+	assertNotNull("test if there is a feedback list to add into", feedbackList); {
 	
 // test that feedback is recorded
 	assertEquals("test feedback's list plus 1 after adding", 1, feedbacksList.size());
