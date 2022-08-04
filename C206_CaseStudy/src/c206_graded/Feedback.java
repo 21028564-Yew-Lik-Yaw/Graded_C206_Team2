@@ -18,6 +18,14 @@ public class Feedback extends Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	/**
+	 * @param string
+	 */
+	public void setStatus(String string) {
+		
+	}
 	
 	
 
