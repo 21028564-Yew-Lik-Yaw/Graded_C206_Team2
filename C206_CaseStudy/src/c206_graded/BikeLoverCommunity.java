@@ -74,7 +74,7 @@ public class BikeLoverCommunity {
 
 			} else if (option == 3) {
 				VisitorRegistration.setHeader("DELETE VISITOR REGISTRATION");
-				VisitorRegistration.deletingVisitorRegistration(visitorList);
+				VisitorRegistration.deleteVisitorRegistration(visitorList);
 				System.out.println("Visitor deleted!");
 
 			} else if (option == 4) {
@@ -156,16 +156,18 @@ public class BikeLoverCommunity {
 
 	// ================================= Option 3 Delete a Registered Visitor (CRUD
 	// -Delete)=================================
-	public static Visitor deletingVisitorRegistration(ArrayList<Visitor> visitorList) {
+	public static Visitor deleteVisitorRegistration(ArrayList<Visitor> visitorList) {
 		VisitorRegistration.viewAllVisitorRegistration(visitorList);
+		
 		String id = Helper.readString("Enter Visitor ID to delete > ");
 		Visitor v1 = null;
 		Boolean isDeleted = false;
-
-		for (Visitor v : visitorList) {
-			if (v.getId().equalsIgnoreCase(id)) {
-				v1 = v;
+		
+		for (int i = 0; i < visitorList.size(); i++ ) {
+			if (visitorList.get(i).getId().equalsIgnoreCase(id)) {
 				isDeleted = true;
+				//doDeleteVisitorRegistration(visitorList, v1);
+				visitorList.remove(i);
 				break;
 			}
 		}
@@ -174,9 +176,9 @@ public class BikeLoverCommunity {
 			System.out.println("Invalid Visitor ID!");
 		}
 		return v1;
-	}
-
-	public static void deleteVisitorRegistration(ArrayList<Visitor> visitorList, Visitor v1) {
+    }
+	
+	public static void doDeleteVisitorRegistration(ArrayList<Visitor> visitorList, Visitor v1) {
 		visitorList.remove(v1);
 
 		// 2. Manage Bike Listings Option
