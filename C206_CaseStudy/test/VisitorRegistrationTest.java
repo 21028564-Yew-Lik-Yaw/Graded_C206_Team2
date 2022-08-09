@@ -27,7 +27,7 @@ public class VisitorRegistrationTest {
 	}
 
 	public static void menuVisitor() {
-		VisitorRegistration.setHeader("Bike Lover’s Community (BLC)");
+		BikeLoverCommunity.setHeader("Bike Lover’s Community (BLC)");
 		System.out.println("1. Display All Visitor Registrations");
 		System.out.println("2. Add Visitor Registration");
 		System.out.println("3. Remove Visitor Registration");
@@ -41,16 +41,16 @@ public class VisitorRegistrationTest {
 		assertNotNull("Test if there is valid Visitor arraylist to add to", visitorList);
 
 		// Given an empty list, after adding 1 item, the size of the list is 1 - normal
-		VisitorRegistration.addVisitorRegistration(visitorList, v1);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v1);
 		assertEquals("Test if that Visitor arraylist size is 1?", 1, visitorList.size());
 
 		// The item just added is as same as the first item of the list - normal
 		assertSame("Test that Visitor is added same as 1st item of the list?", 1, visitorList.get(0));
 
 		// Add another item. test The size of the list is 4?
-		VisitorRegistration.addVisitorRegistration(visitorList, v2);
-		VisitorRegistration.addVisitorRegistration(visitorList, v3);
-		VisitorRegistration.addVisitorRegistration(visitorList, v4);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v2);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v3);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v4);
 
 		assertEquals("Test that Visitor arraylist size is 4?", 4, visitorList.size());
 		assertSame("Test that Visitor is added same as 4th item of the list?", v4, visitorList.get(3));
@@ -71,16 +71,16 @@ public class VisitorRegistrationTest {
 
 		// Given an empty list, after adding 4 items, test if the size of the list is 4
 		// - normal
-		VisitorRegistration.addVisitorRegistration(visitorList, v1);
-		VisitorRegistration.addVisitorRegistration(visitorList, v2);
-		VisitorRegistration.addVisitorRegistration(visitorList, v3);
-		VisitorRegistration.addVisitorRegistration(visitorList, v4);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v1);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v2);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v3);
+		BikeLoverCommunity.addVisitorRegistration(visitorList, v4);
 		assertEquals("Test that Visitor arraylist size is 4", 4, visitorList.size());
 
 		// test if the expected output string same as the list of Visitor Registration
 		// retrieved
 		// from the SourceCentre
-		allVisitorRegistration = VisitorRegistration.retrieveAllVisitorRegistration(visitorList);
+		allVisitorRegistration = BikeLoverCommunity.retrieveAllVisitorRegistration(visitorList);
 		testOutput = String.format("%-10s %-20s %-15s %-20s %-10s\n", "V01", "Elon Musk", 85478633, "emusk123@gmail.com", true);
 		testOutput += String.format("%-10s %-20s %-15s %-20s %-10s\n", "V02", "Zhong Shan", 99701102, "shiso321@gmail.com", true);
 		testOutput += String.format("%-10s %-20s %-15s %-20s %-10s\n", "V03", "Mary Teo", 89685433, "maryt3o1@gmail.com", true);
