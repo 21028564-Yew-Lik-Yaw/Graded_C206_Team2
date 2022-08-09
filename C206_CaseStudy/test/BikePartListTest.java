@@ -70,23 +70,23 @@ public class BikePartListTest {
 		// test if the list of BikePartListing retrieved from the BikeLoverCommunity is
 		// empty -
 		// boundary
-		String allBikePartListing = Bike_Lover_Community.retrieveAllBikePartListing(bikePartListingList);
+		String allBikePartListing = BikeLoverCommunity.retrieveAllBikePartListing(bikePartListingList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllBikePartListingList", testOutput, allBikePartListing);
 
 		// Given an empty list, after adding 4 items, test if the size of the list is 4
 		// - normal
-		Bike_Lover_Community.addBikePartListing(bikePartListingList, bpl1);
-		Bike_Lover_Community.addBikePartListing(bikePartListingList, bpl2);
-		Bike_Lover_Community.addBikePartListing(bikePartListingList, bpl3);
-		Bike_Lover_Community.addBikePartListing(bikePartListingList, bpl4);
+		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl1);
+		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl2);
+		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl3);
+		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl4);
 
 		assertEquals("Test that BikePartListing arraylist size is 4", 4, bikePartListingList.size());
 
 		// test if the expected output string same as the list of BikePartListing
 		// retrieved
 		// from the SourceCentre
-		allBikePartListing = Bike_Lover_Community.retrieveAllBikePartListing(bikePartListingList);
+		allBikePartListing = BikeLoverCommunity.retrieveAllBikePartListing(bikePartListingList);
 		testOutput = String.format("%-10s %-40s %-20s %-10.2f %-10s\n", "BP001", "Fixie", "Wheel", 250.80, true);
 		testOutput = String.format("%-10s %-40s %-20s %-10.2f %-10s\n", "BP002", "Nukeproof Horizon V2 Carbon Riser",
 				"Handlebar", 45.90, true);
@@ -124,20 +124,24 @@ public class BikePartListTest {
 
 	@Test
 	public void testDoDeleteBikePartListing() {
-		//boundary
-		assertNotNull("Test if there is valid BikePartListing arraylist to add to", bikePartListingList);
+		// Given an empty list, after adding 2 items, test if the size of the list is 2.
+		// After removing an item , then the size of the list become 1
 		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl1);
-		//error
-		Boolean isDeleted = BikeLoverCommunity.deleteBikePartListing(bikePartListingList, "BP001");
-		assertFalse("Test if available BikePartListing BP001 is returned -false?", isDeleted);		
-		//normal
 		BikeLoverCommunity.addBikePartListing(bikePartListingList, bpl2);
-		bpl2.setIsAvailable(false);
-		isDeleted = BikeLoverCommunity.doDeleteBikePartListing(bikePartListingList, "BP002");
-		assertTrue("Test if loaned out BikePartListing BP002 is returned- true", isDeleted);
-		//error
-		isDeleted = BikeLoverCommunity.doDeleteBikePartListing(bikePartListingList, "BP003");
-		assertFalse("Test if non-existing BikePartListing BP003 is returned - false?", isDeleted);
+		assertEquals("Test if that Appointment arraylist size is 1?", 2, bikePartListingList.size());
+
+		// The item just added is as same as the first item of the list
+		assertSame("Test that appointment is added same as the 1st appointment of the list?", bpl1,
+				bikePartListingList.get(0));
+
+		// Test if bike list is not null but empty, so that can add new item
+		assertNotNull("test if there is valid Bike arraylist to delete to", bikePartListingList);
+
+		// Delete the bikePartListingList , test the size of the list is 1
+		BikeLoverCommunity.doDeleteBikePartListing(bikePartListingList);
+		assertEquals("Test that appointment arrayList is 0?", 1, bikePartListingList.size());
+		assertSame("Test that Appointment is added same as 3rd item of the list?", bpl2, bikePartListingList.get(0));
+
 	}
 
 	@After

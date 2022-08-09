@@ -1,12 +1,18 @@
 package c206_graded;
+/**
+ * 
+ */
+
 
 public class Item {
 	private String id;
 	private String name;
 	
+
 	public Item(String id, String name) {
 		this.id = id;
 		this.name = name;
+	
 	}
 
 	public String getId() {
@@ -24,4 +30,6 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
 }

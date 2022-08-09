@@ -1,5 +1,5 @@
 	@Test
-	public void testViewAllFeedback() { 
+	public static void testViewAllFeedback() { 
 /// CREATE FEEDBACK
 	
 // test that feedbacks are added accordingly

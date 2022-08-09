@@ -1,37 +1,32 @@
 package c206_graded;
 
-public class Appointment {
-	private String id;
-	private String name;
+import java.time.LocalDate;
+
+public class Appointment extends Item {
 	private String date;
-	
-	
+
 	public Appointment(String id, String name, String date) {
-		this.id = id;
-		this.name = name;
+		super(id, name);
 		this.date = date;
 	}
-	
-	public String getId() {
-		return id;
-	}
 
-	public String getName() {
-		return name;
-	}
 	public String getDate() {
 		return date;
 	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	
+	
+	
+	
+
+	
+	
+
+
 	
 	
 }

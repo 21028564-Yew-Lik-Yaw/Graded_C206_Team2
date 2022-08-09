@@ -1,12 +1,6 @@
-
-
 package c206_graded;
 
-/**
- * @author 21028564
- *
- */
-public class BikePartListing extends Item{
+public class BikePartListing extends Item {
 	private String BikePartType;
 	private double price;
 	private boolean isAvailable;
@@ -49,7 +43,20 @@ public class BikePartListing extends Item{
 		this.isAvailable = isAvailable;
 	}
 	
-
-}
+	
 	
 
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
